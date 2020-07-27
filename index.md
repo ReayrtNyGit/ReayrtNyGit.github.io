@@ -27,7 +27,8 @@ Syntax highlighted code block
 
 
 ```
-[Working Link for example](https://reayrtnygit.github.io/course_links.html)
+[Working Link for example](/course_links.html)
+[Link to Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
