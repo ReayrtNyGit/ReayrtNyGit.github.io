@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to ReayrtNyGit's GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/ReayrtNyGit/ReayrtNyGit.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
@@ -28,6 +28,7 @@ Syntax highlighted code block
 
 ```
 [Working Link for example](/course_links.html)
+
 [Link to Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
