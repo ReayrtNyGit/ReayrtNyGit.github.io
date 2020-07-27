@@ -25,7 +25,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 
-[Link for example](/course_links.html)
+[Link for example](https://reayrtnygit.github.io/course_links.html)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
