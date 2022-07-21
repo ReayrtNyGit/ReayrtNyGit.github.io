@@ -1,0 +1,1985 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Modern Data Analysis</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="IDE.html"><strong aria-hidden="true">1.</strong> Interactive Development Environment</a></li><li class="chapter-item expanded "><a href="nested/index.html"><strong aria-hidden="true">2.</strong> Nested example</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="nested/sub-chapter.html"><strong aria-hidden="true">2.1.</strong> Sub-chapter</a></li></ol></li><li class="chapter-item expanded "><a href="polars.html"><strong aria-hidden="true">3.</strong> Polars</a></li><li class="chapter-item expanded affix "><a href="polars_examples.html">Worked example</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Modern Data Analysis</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
+<p>This book aims to provide a brief summary of the how data analysis can be performed using modern tools that have only recently become available. These tools will  primarily be free and open source software developed to help the community by numerous contributors.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interactive-development-environment"><a class="header" href="#interactive-development-environment">Interactive Development Environment</a></h1>
+<h2 id="how-to-see-whats-going-on"><a class="header" href="#how-to-see-whats-going-on">How to see what's going on</a></h2>
+<p>To view and quickly process data the goto tool still remains Microsoft Excel. Also, PowerBI has become widely used to produce web hosted data dashboards. However, PowerBI's user interface is vastly different from Excel and so can be unintuitive to users that only have experience of using Excel.</p>
+<h2 id="python"><a class="header" href="#python">Python</a></h2>
+<p>Python has become the de facto language for data Analysis due to its readability and wide range of analysis modules available, its built in Interactive Development Environment (IDE) IDLE is fairly basic, so it is usually used with an addition IDE such as the following;</p>
+<h3 id="jupyter-notebooks"><a class="header" href="#jupyter-notebooks">Jupyter Notebooks</a></h3>
+<p><a href="https://jupyter.org/">Jupyter Notebooks</a> are now widely used in Science and Data Analysis as they are able to accommodate a range of languages and are an excellent tool for data exploration and visualisation.</p>
+<h4 id="cons"><a class="header" href="#cons">Cons</a></h4>
+<ol>
+<li>No good version control process</li>
+<li>Not suitable for fully automated processes</li>
+</ol>
+<h3 id="vscode"><a class="header" href="#vscode">VScode</a></h3>
+<p>An excellent editor for multiple languages with many plugin tools available.</p>
+<h4 id="cons-1"><a class="header" href="#cons-1">Cons</a></h4>
+<ol>
+<li>Not so good as displaying output</li>
+</ol>
+<p><img src="visualization.png" alt="Example chart in png format" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nested-example"><a class="header" href="#nested-example">Nested example</a></h1>
+<h1 id=""><a class="header" href="#"></a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sub-chapter"><a class="header" href="#sub-chapter">Sub-chapter</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="polars"><a class="header" href="#polars">Polars</a></h1>
+<p><a href="https://pola-rs.github.io/polars-book/user-guide/index.html">Polars with Python</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="polars-dataframe-module"><a class="header" href="#polars-dataframe-module">Polars dataframe module</a></h1>
+<pre><code class="language-python">#!pip install polars
+#!pip install altair
+#!pip install pyarrow
+</code></pre>
+<pre><code class="language-python">import pyarrow
+import polars as pl
+from pathlib import Path
+import altair as alt
+import pandas as pd
+import numpy as np
+
+
+</code></pre>
+<pre><code class="language-python">
+data_dir = Path(&quot;C:/Users/John/Data&quot;)
+csvFile = data_dir / &quot;Table-2a.csv&quot;
+
+</code></pre>
+<pre><code class="language-python"> df = pl.scan_csv(csvFile, skip_rows=11)
+</code></pre>
+<pre><code class="language-python">df.fetch(n_rows=5)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+.dataframe td {
+    white-space: pre;
+}
+
+.dataframe td {
+    line-height: 95%;
+}
+
+.dataframe td {
+    padding-top: 0;
+}
+
+.dataframe td {
+    padding-bottom: 0;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe" >
+<small>shape: (5, 10)</small>
+<thead>
+<tr>
+<th>
+UKPRN
+</th>
+<th>
+HE Provider
+</th>
+<th>
+Country of HE provider
+</th>
+<th>
+Region of HE provider
+</th>
+<th>
+Academic Year
+</th>
+<th>
+Type of service
+</th>
+<th>
+Type of organisation
+</th>
+<th>
+Number/Value Marker
+</th>
+<th>
+Unit
+</th>
+<th>
+Number/Value
+</th>
+</tr>
+<tr>
+<td>
+i64
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+10007783
+</td>
+<td>
+"The University...
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"2014/15"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+"Number"
+</td>
+<td>
+null
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<td>
+10007783
+</td>
+<td>
+"The University...
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"2014/15"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+"Number"
+</td>
+<td>
+null
+</td>
+<td>
+59
+</td>
+</tr>
+<tr>
+<td>
+10007783
+</td>
+<td>
+"The University...
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"2014/15"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+"Number"
+</td>
+<td>
+null
+</td>
+<td>
+34
+</td>
+</tr>
+<tr>
+<td>
+10007783
+</td>
+<td>
+"The University...
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"2014/15"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Total"
+</td>
+<td>
+"Number"
+</td>
+<td>
+null
+</td>
+<td>
+99
+</td>
+</tr>
+<tr>
+<td>
+10007783
+</td>
+<td>
+"The University...
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"Scotland"
+</td>
+<td>
+"2014/15"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+"Value"
+</td>
+<td>
+"£000s"
+</td>
+<td>
+53
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python">colUse=df.fetch(n_rows=5).columns[4:]
+print(colUse)
+</code></pre>
+<pre><code>['Academic Year', 'Type of service', 'Type of organisation', 'Number/Value Marker', 'Unit', 'Number/Value']
+</code></pre>
+<pre><code class="language-python">df.fetch(n_rows=5).select(pl.col(
+        colUse)).filter(pl.col(&quot;Number/Value Marker&quot;)==&quot;Value&quot;)
+
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+.dataframe td {
+    white-space: pre;
+}
+
+.dataframe td {
+    line-height: 95%;
+}
+
+.dataframe td {
+    padding-top: 0;
+}
+
+.dataframe td {
+    padding-bottom: 0;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe" >
+<small>shape: (1, 6)</small>
+<thead>
+<tr>
+<th>
+Academic Year
+</th>
+<th>
+Type of service
+</th>
+<th>
+Type of organisation
+</th>
+<th>
+Number/Value Marker
+</th>
+<th>
+Unit
+</th>
+<th>
+Number/Value
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+"Value"
+</td>
+<td>
+"£000s"
+</td>
+<td>
+53
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python"># q = (
+#     pl.scan_csv(&quot;iris.csv&quot;)
+#     .filter(pl.col(&quot;sepal_length&quot;) &gt; 5)
+#     .groupby(&quot;species&quot;)
+#     .agg(pl.all().sum())
+# )
+
+# df = q.collect()
+
+</code></pre>
+<pre><code class="language-python">q=(
+    pl.scan_csv(csvFile, skip_rows=11)
+    .filter(pl.col(&quot;Number/Value Marker&quot;)==&quot;Value&quot;)
+    .groupby(['Academic Year', 'Type of service', 'Type of organisation'])
+    .agg(pl.col(&quot;Number/Value&quot;).sum())
+)
+q.collect()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+.dataframe td {
+    white-space: pre;
+}
+
+.dataframe td {
+    line-height: 95%;
+}
+
+.dataframe td {
+    padding-top: 0;
+}
+
+.dataframe td {
+    padding-bottom: 0;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe" >
+<small>shape: (84, 4)</small>
+<thead>
+<tr>
+<th>
+Academic Year
+</th>
+<th>
+Type of service
+</th>
+<th>
+Type of organisation
+</th>
+<th>
+Number/Value
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+64207
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+63921
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+61865
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+64104
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1248652
+</td>
+</tr>
+<tr>
+<td>
+"2018/19"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+113618
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+278511
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+58840
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+81275
+</td>
+</tr>
+<tr>
+<td>
+"2018/19"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+79414
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Total"
+</td>
+<td>
+225355
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+840801
+</td>
+</tr>
+<tr>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+504057
+</td>
+</tr>
+<tr>
+<td>
+"2018/19"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+288268
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Total"
+</td>
+<td>
+213062
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Total"
+</td>
+<td>
+509294
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+105477
+</td>
+</tr>
+<tr>
+<td>
+"2018/19"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+88001
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+450968
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+113827
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1209381
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+70701
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1318792
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+147964
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python">
+</code></pre>
+<pre><code class="language-python">q.collect().sort(pl.col(&quot;Number/Value&quot;))
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+.dataframe td {
+    white-space: pre;
+}
+
+.dataframe td {
+    line-height: 95%;
+}
+
+.dataframe td {
+    padding-top: 0;
+}
+
+.dataframe td {
+    padding-bottom: 0;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe" >
+<small>shape: (84, 4)</small>
+<thead>
+<tr>
+<th>
+Academic Year
+</th>
+<th>
+Type of service
+</th>
+<th>
+Type of organisation
+</th>
+<th>
+Number/Value
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+48474
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+54268
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+58840
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+59182
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+60791
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+61182
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+61865
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+62396
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+63320
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"Consultancy"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+63921
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Facilities and...
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+64104
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"SME's"
+</td>
+<td>
+64207
+</td>
+</tr>
+<tr>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+740139
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+751853
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+772558
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+828242
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+840801
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1209381
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1248652
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1287733
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1318792
+</td>
+</tr>
+<tr>
+<td>
+"2018/19"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1349980
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1417724
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"Contract resea...
+</td>
+<td>
+"Total"
+</td>
+<td>
+1437337
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>data = alt.Data(values=[{'x': 'A', 'y': 5},
+{'x': 'B', 'y': 3},
+{'x': 'C', 'y': 6},
+{'x': 'D', 'y': 7},
+{'x': 'E', 'y': 2}])</p>
+<pre><code class="language-python">
+</code></pre>
+<pre><code class="language-python">df=q.collect()
+</code></pre>
+<pre><code class="language-python">#df.write_csv(data_dir / 'test.csv')
+df.write_json(data_dir / 'test.json')
+
+</code></pre>
+<pre><code class="language-python">#list(df[pl.col(['Academic Year', 'Type of service', 'Type of organisation'])])
+</code></pre>
+<pre><code class="language-python">#data = alt.Data(data_dir / 'test.json')
+</code></pre>
+<pre><code class="language-python"># .(pl.col(&quot;Number/Value&quot;).over(pl.col(&quot;Type of service&quot;).alias(&quot;sum&quot;)\
+# pl.scan_csv(
+#     csvFile, skip_rows=11)\
+# .filter(pl.col(&quot;Number/Value Marker&quot;)==&quot;Value&quot;)\
+# .sort(pl.col(&quot;Number/Value&quot;), reverse=True)\
+# .collect()
+</code></pre>
+<pre><code class="language-python">
+</code></pre>
+<pre><code class="language-python">data=pl.scan_csv(
+    csvFile, skip_rows=11)\
+.filter((pl.col(&quot;Number/Value Marker&quot;)==&quot;Value&quot;) &amp; (pl.col(&quot;Type of organisation&quot;)!=&quot;Total&quot;))\
+.sort(pl.col(&quot;Number/Value&quot;), reverse=True)\
+.collect().to_pandas()
+</code></pre>
+<pre><code class="language-python">#    .groupby(['Academic Year', 'Type of service', 'Type of organisation'])
+
+q=(
+    pl.scan_csv(csvFile, skip_rows=11)
+    .filter((pl.col(&quot;Number/Value Marker&quot;)==&quot;Value&quot;) &amp; (pl.col(&quot;Type of organisation&quot;)!=&quot;Total&quot;))\
+    .groupby(([&quot;Academic Year&quot;, &quot;Type of organisation&quot;]))
+    .agg(pl.col(&quot;Number/Value&quot;).sum().alias(&quot;Value&quot;))
+    .sort(pl.col([&quot;Academic Year&quot;, &quot;Type of organisation&quot;]))
+)
+q.collect()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+
+.dataframe td {
+    white-space: pre;
+}
+
+.dataframe td {
+    line-height: 95%;
+}
+
+.dataframe td {
+    padding-top: 0;
+}
+
+.dataframe td {
+    padding-bottom: 0;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe" >
+<small>shape: (21, 3)</small>
+<thead>
+<tr>
+<th>
+Academic Year
+</th>
+<th>
+Type of organisation
+</th>
+<th>
+Value
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+1054040
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+606228
+</td>
+</tr>
+<tr>
+<td>
+"2014/15"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+188931
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+1087274
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+629597
+</td>
+</tr>
+<tr>
+<td>
+"2015/16"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+200689
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+1129121
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+624115
+</td>
+</tr>
+<tr>
+<td>
+"2016/17"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+217219
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+1124997
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+668466
+</td>
+</tr>
+<tr>
+<td>
+"2017/18"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+222392
+</td>
+</tr>
+<tr>
+<td>
+"2018/19"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+1122699
+</td>
+</tr>
+<tr>
+<td>
+"2018/19"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+704394
+</td>
+</tr>
+<tr>
+<td>
+"2018/19"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+250591
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+1219267
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+693636
+</td>
+</tr>
+<tr>
+<td>
+"2019/20"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+217653
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Non-commercial...
+</td>
+<td>
+1313555
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"Other (non-SME...
+</td>
+<td>
+677397
+</td>
+</tr>
+<tr>
+<td>
+"2020/21"
+</td>
+<td>
+"SME's"
+</td>
+<td>
+209316
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python">data=q.collect().to_pandas()
+</code></pre>
+<pre><code class="language-python">data.head(3)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Academic Year</th>
+      <th>Type of organisation</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2014/15</td>
+      <td>Non-commercial organisations</td>
+      <td>1054040</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2014/15</td>
+      <td>Other (non-SME) commercial businesses</td>
+      <td>606228</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2014/15</td>
+      <td>SME's</td>
+      <td>188931</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-python">chart=alt.Chart(data)
+</code></pre>
+<pre><code class="language-python">chart.mark_bar().encode(
+    y='Academic Year',
+    x='Value',
+    color=&quot;Type of organisation&quot;
+)
+</code></pre>
+<div id="altair-viz-e27681f437d74c878ad5fb686c0dc825"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-e27681f437d74c878ad5fb686c0dc825") {
+      outputDiv = document.getElementById("altair-viz-e27681f437d74c878ad5fb686c0dc825");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+<pre><code>function maybeLoadScript(lib, version) {
+  var key = `${lib.replace(&quot;-&quot;, &quot;&quot;)}_version`;
+  return (VEGA_DEBUG[key] == version) ?
+    Promise.resolve(paths[lib]) :
+    new Promise(function(resolve, reject) {
+      var s = document.createElement('script');
+      document.getElementsByTagName(&quot;head&quot;)[0].appendChild(s);
+      s.async = true;
+      s.onload = () =&gt; {
+        VEGA_DEBUG[key] = version;
+        return resolve(paths[lib]);
+      };
+      s.onerror = () =&gt; reject(`Error loading script: ${paths[lib]}`);
+      s.src = paths[lib];
+    });
+}
+
+function showError(err) {
+  outputDiv.innerHTML = `&lt;div class=&quot;error&quot; style=&quot;color:red;&quot;&gt;${err}&lt;/div&gt;`;
+  throw err;
+}
+
+function displayChart(vegaEmbed) {
+  vegaEmbed(outputDiv, spec, embedOpt)
+    .catch(err =&gt; showError(`Javascript Error: ${err.message}&lt;br&gt;This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+}
+
+if(typeof define === &quot;function&quot; &amp;&amp; define.amd) {
+  requirejs.config({paths});
+  require([&quot;vega-embed&quot;], displayChart, err =&gt; showError(`Error loading script: ${err.message}`));
+} else {
+  maybeLoadScript(&quot;vega&quot;, &quot;5&quot;)
+    .then(() =&gt; maybeLoadScript(&quot;vega-lite&quot;, &quot;4.17.0&quot;))
+    .then(() =&gt; maybeLoadScript(&quot;vega-embed&quot;, &quot;6&quot;))
+    .catch(showError)
+    .then(() =&gt; displayChart(vegaEmbed));
+}
+</code></pre>
+<p>})({&quot;config&quot;: {&quot;view&quot;: {&quot;continuousWidth&quot;: 400, &quot;continuousHeight&quot;: 300}}, &quot;data&quot;: {&quot;name&quot;: &quot;data-d5d9f62532f5e8e336e7e089a625e550&quot;}, &quot;mark&quot;: &quot;bar&quot;, &quot;encoding&quot;: {&quot;color&quot;: {&quot;field&quot;: &quot;Type of organisation&quot;, &quot;type&quot;: &quot;nominal&quot;}, &quot;x&quot;: {&quot;field&quot;: &quot;Value&quot;, &quot;type&quot;: &quot;quantitative&quot;}, &quot;y&quot;: {&quot;field&quot;: &quot;Academic Year&quot;, &quot;type&quot;: &quot;nominal&quot;}}, &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v4.17.0.json&quot;, &quot;datasets&quot;: {&quot;data-d5d9f62532f5e8e336e7e089a625e550&quot;: [{&quot;Academic Year&quot;: &quot;2014/15&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1054040}, {&quot;Academic Year&quot;: &quot;2014/15&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 606228}, {&quot;Academic Year&quot;: &quot;2014/15&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 188931}, {&quot;Academic Year&quot;: &quot;2015/16&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1087274}, {&quot;Academic Year&quot;: &quot;2015/16&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 629597}, {&quot;Academic Year&quot;: &quot;2015/16&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 200689}, {&quot;Academic Year&quot;: &quot;2016/17&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1129121}, {&quot;Academic Year&quot;: &quot;2016/17&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 624115}, {&quot;Academic Year&quot;: &quot;2016/17&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 217219}, {&quot;Academic Year&quot;: &quot;2017/18&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1124997}, {&quot;Academic Year&quot;: &quot;2017/18&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 668466}, {&quot;Academic Year&quot;: &quot;2017/18&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 222392}, {&quot;Academic Year&quot;: &quot;2018/19&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1122699}, {&quot;Academic Year&quot;: &quot;2018/19&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 704394}, {&quot;Academic Year&quot;: &quot;2018/19&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 250591}, {&quot;Academic Year&quot;: &quot;2019/20&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1219267}, {&quot;Academic Year&quot;: &quot;2019/20&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 693636}, {&quot;Academic Year&quot;: &quot;2019/20&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 217653}, {&quot;Academic Year&quot;: &quot;2020/21&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1313555}, {&quot;Academic Year&quot;: &quot;2020/21&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 677397}, {&quot;Academic Year&quot;: &quot;2020/21&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 209316}]}}, {&quot;mode&quot;: &quot;vega-lite&quot;});
+</script></p>
+<pre><code class="language-python">chart.mark_arc().encode(
+    theta=alt.Theta(field=&quot;Number/Value&quot;, type=&quot;quantitative&quot;),
+    color=alt.Color(field=&quot;Academic Year&quot;, type=&quot;nominal&quot;),
+)
+
+</code></pre>
+<div id="altair-viz-36cfc9be4a864efdbf5996992a0c80f8"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-36cfc9be4a864efdbf5996992a0c80f8") {
+      outputDiv = document.getElementById("altair-viz-36cfc9be4a864efdbf5996992a0c80f8");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+<pre><code>function maybeLoadScript(lib, version) {
+  var key = `${lib.replace(&quot;-&quot;, &quot;&quot;)}_version`;
+  return (VEGA_DEBUG[key] == version) ?
+    Promise.resolve(paths[lib]) :
+    new Promise(function(resolve, reject) {
+      var s = document.createElement('script');
+      document.getElementsByTagName(&quot;head&quot;)[0].appendChild(s);
+      s.async = true;
+      s.onload = () =&gt; {
+        VEGA_DEBUG[key] = version;
+        return resolve(paths[lib]);
+      };
+      s.onerror = () =&gt; reject(`Error loading script: ${paths[lib]}`);
+      s.src = paths[lib];
+    });
+}
+
+function showError(err) {
+  outputDiv.innerHTML = `&lt;div class=&quot;error&quot; style=&quot;color:red;&quot;&gt;${err}&lt;/div&gt;`;
+  throw err;
+}
+
+function displayChart(vegaEmbed) {
+  vegaEmbed(outputDiv, spec, embedOpt)
+    .catch(err =&gt; showError(`Javascript Error: ${err.message}&lt;br&gt;This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+}
+
+if(typeof define === &quot;function&quot; &amp;&amp; define.amd) {
+  requirejs.config({paths});
+  require([&quot;vega-embed&quot;], displayChart, err =&gt; showError(`Error loading script: ${err.message}`));
+} else {
+  maybeLoadScript(&quot;vega&quot;, &quot;5&quot;)
+    .then(() =&gt; maybeLoadScript(&quot;vega-lite&quot;, &quot;4.17.0&quot;))
+    .then(() =&gt; maybeLoadScript(&quot;vega-embed&quot;, &quot;6&quot;))
+    .catch(showError)
+    .then(() =&gt; displayChart(vegaEmbed));
+}
+</code></pre>
+<p>})({&quot;config&quot;: {&quot;view&quot;: {&quot;continuousWidth&quot;: 400, &quot;continuousHeight&quot;: 300}}, &quot;data&quot;: {&quot;name&quot;: &quot;data-d5d9f62532f5e8e336e7e089a625e550&quot;}, &quot;mark&quot;: &quot;arc&quot;, &quot;encoding&quot;: {&quot;color&quot;: {&quot;field&quot;: &quot;Academic Year&quot;, &quot;type&quot;: &quot;nominal&quot;}, &quot;theta&quot;: {&quot;field&quot;: &quot;Number/Value&quot;, &quot;type&quot;: &quot;quantitative&quot;}}, &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v4.17.0.json&quot;, &quot;datasets&quot;: {&quot;data-d5d9f62532f5e8e336e7e089a625e550&quot;: [{&quot;Academic Year&quot;: &quot;2014/15&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1054040}, {&quot;Academic Year&quot;: &quot;2014/15&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 606228}, {&quot;Academic Year&quot;: &quot;2014/15&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 188931}, {&quot;Academic Year&quot;: &quot;2015/16&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1087274}, {&quot;Academic Year&quot;: &quot;2015/16&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 629597}, {&quot;Academic Year&quot;: &quot;2015/16&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 200689}, {&quot;Academic Year&quot;: &quot;2016/17&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1129121}, {&quot;Academic Year&quot;: &quot;2016/17&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 624115}, {&quot;Academic Year&quot;: &quot;2016/17&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 217219}, {&quot;Academic Year&quot;: &quot;2017/18&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1124997}, {&quot;Academic Year&quot;: &quot;2017/18&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 668466}, {&quot;Academic Year&quot;: &quot;2017/18&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 222392}, {&quot;Academic Year&quot;: &quot;2018/19&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1122699}, {&quot;Academic Year&quot;: &quot;2018/19&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 704394}, {&quot;Academic Year&quot;: &quot;2018/19&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 250591}, {&quot;Academic Year&quot;: &quot;2019/20&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1219267}, {&quot;Academic Year&quot;: &quot;2019/20&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 693636}, {&quot;Academic Year&quot;: &quot;2019/20&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 217653}, {&quot;Academic Year&quot;: &quot;2020/21&quot;, &quot;Type of organisation&quot;: &quot;Non-commercial organisations&quot;, &quot;Value&quot;: 1313555}, {&quot;Academic Year&quot;: &quot;2020/21&quot;, &quot;Type of organisation&quot;: &quot;Other (non-SME) commercial businesses&quot;, &quot;Value&quot;: 677397}, {&quot;Academic Year&quot;: &quot;2020/21&quot;, &quot;Type of organisation&quot;: &quot;SME's&quot;, &quot;Value&quot;: 209316}]}}, {&quot;mode&quot;: &quot;vega-lite&quot;});
+</script></p>
+<pre><code class="language-python">
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
