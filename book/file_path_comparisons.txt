@@ -1,0 +1,3 @@
+\home\john\projects\rust\modern-data-analysis\src\openTools.md
+/home/john/projects/rust/modern-data-analysis/src/openTools.md
+
