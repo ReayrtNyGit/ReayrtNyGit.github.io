@@ -33,6 +33,8 @@ Syntax highlighted code block
 
 [Link to my new book](/book/index.html)
 
+[Link to Web Assembly Rust audio example](/dist/index.html)
+
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
